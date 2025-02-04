@@ -44,6 +44,10 @@ func main() {
 			panic(err.Error())
 		}
 		defer stmtOut.Close()
+		_, err = stmtOut.Exec()
+		if err != nil {
+			panic(err.Error())
+		}
 
 		_, err = fmt.Fprintf(w, "DB Connection successful!")
 		if err != nil {
